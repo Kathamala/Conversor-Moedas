@@ -14,7 +14,7 @@ void main() async {
 }
 
 Future<Map> getData() async {
-  http.Response response = await http.get(request);
+  http.Response response = await http.get(Uri.parse(request));
   return json.decode(response.body);
 }
 
@@ -22,7 +22,7 @@ class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
@@ -134,7 +134,7 @@ class _HomeState extends State<Home> {
   Widget buildTextFormField(String label, String prefix,
       TextEditingController controller, Function f) {
     return TextField(
-      onChanged: f(),
+      onChanged: (_) => f,
       controller: controller,
       decoration: InputDecoration(
           labelText: label,
