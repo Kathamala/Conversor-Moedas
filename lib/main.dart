@@ -116,13 +116,13 @@ class _HomeState extends State<Home> {
                             color: Colors.amber,
                           ),
                           buildTextFormField(
-                              "Reais", "R\$", realController, _realChange),
+                              "Reais", "R\$ ", realController, _realChange),
                           const Divider(),
                           buildTextFormField(
-                              "Dólar", "US\$", dolarController, _dolarChange),
+                              "Dólar", "US\$ ", dolarController, _dolarChange),
                           const Divider(),
                           buildTextFormField(
-                              "Euro", "EUR", euroController, _euroChange),
+                              "Euro", "EUR ", euroController, _euroChange),
                         ],
                       ));
                 }
@@ -134,7 +134,7 @@ class _HomeState extends State<Home> {
   Widget buildTextFormField(String label, String prefix,
       TextEditingController controller, Function f) {
     return TextField(
-      onChanged: (_) => f,
+      onChanged: (value) => f(value),
       controller: controller,
       decoration: InputDecoration(
           labelText: label,
